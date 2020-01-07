@@ -21,16 +21,15 @@ class TruliooConfirmationViewController: UIViewController, UIPickerViewDataSourc
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    let docTypepickerView = UIPickerView()
     let countryPickerView = UIPickerView()
     
     // You can fetch the full list with Trulioo API
     let countryCodeArray = ["CA","US"]
-    let documentTypeArray = ["DrivingLicence","Passport"]
     
     public var frontImage: UIImage? = nil
     public var backImage: UIImage? = nil
     public var liveImage: UIImage? = nil
+    public var docType:String? = nil
     
     let toolBar = UIToolbar(frame:CGRect(x:0, y:0, width: UIScreen.main.bounds.width, height:45))
     var doneButton:UIBarButtonItem!
@@ -84,20 +83,19 @@ class TruliooConfirmationViewController: UIViewController, UIPickerViewDataSourc
         toolBar.items = [doneButton]
         
         countryPickerView.dataSource = self
-        docTypepickerView.dataSource = self
         countryPickerView.delegate = self as UIPickerViewDelegate
-        docTypepickerView.delegate = self as UIPickerViewDelegate
         
         firstNameBox.delegate = self as UITextFieldDelegate
         lastNameBox.delegate = self as UITextFieldDelegate
+        firstNameBox.inputAccessoryView = toolBar
+        lastNameBox.inputAccessoryView = toolBar
         
         countryCodeBox.inputAccessoryView = toolBar
         countryCodeBox.text = countryCodeArray.first
-        docTypeBox.inputAccessoryView = toolBar
-        docTypeBox.text = documentTypeArray.first
+        docTypeBox.text = docType!
+        docTypeBox.isEnabled = false
         
         countryCodeBox.inputView = countryPickerView
-        docTypeBox.inputView = docTypepickerView
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -108,9 +106,6 @@ class TruliooConfirmationViewController: UIViewController, UIPickerViewDataSourc
          if pickerView == countryPickerView {
              return countryCodeArray.count
          }
-         else if pickerView == docTypepickerView{
-             return documentTypeArray.count
-         }
          return 0
     }
 
@@ -118,18 +113,12 @@ class TruliooConfirmationViewController: UIViewController, UIPickerViewDataSourc
         if pickerView == countryPickerView {
             return countryCodeArray[row]
         }
-        else if pickerView == docTypepickerView {
-            return documentTypeArray[row]
-        }
         return nil
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(pickerView == countryPickerView){
             countryCodeBox.text = countryCodeArray[row]
-        }
-        else if(pickerView == docTypepickerView) {
-            docTypeBox.text = documentTypeArray[row]
         }
     }
     

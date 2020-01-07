@@ -11,7 +11,7 @@
         <!--Trulioo Test Connection View Controller-->
         <scene sceneID="n4b-LO-Xco">
             <objects>
-                <viewController id="Jq6-S1-WCR" customClass="TruliooTestConnectionViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jq6-S1-WCR" customClass="TruliooTestConnectionViewController" customModule="TruliooSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KBA-et-Fcd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
         <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="RootViewController" id="BYZ-38-t0r" customClass="RootViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootViewController" id="BYZ-38-t0r" customClass="RootViewController" customModule="TruliooSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Obf-gW-QdO"/>
                                 </constraints>
-                                <state key="normal" title="ID/Passport"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Start ID Document Verification"/>
                                 <connections>
                                     <action selector="idPassportTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="194-fM-c8h"/>
                                 </connections>
@@ -127,19 +128,45 @@
                                     <constraint firstAttribute="height" constant="83" id="mZL-IH-JWh"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fd-dn-fOD">
+                                <rect key="frame" x="144" y="351" width="126" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0gv-Iv-A2P"/>
+                                    <constraint firstAttribute="width" constant="126" id="6Ge-i1-c7m"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Pjy-PG-xZd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DocumentType" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V0J-0d-l6a">
+                                <rect key="frame" x="144" y="386" width="126" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="2HO-EG-Qno"/>
+                                    <constraint firstAttribute="height" constant="34" id="T0n-Bp-LXj"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="jOt-kx-Td8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="V0J-0d-l6a" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GZJ-Iv-fyZ"/>
                             <constraint firstItem="xDe-A1-eVa" firstAttribute="top" secondItem="htr-zs-iF7" secondAttribute="bottom" constant="85" id="H01-pF-WWC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="htr-zs-iF7" secondAttribute="trailing" constant="64" id="Lnq-nE-QSq"/>
                             <constraint firstItem="UWo-um-OZM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="31" id="X4v-5M-VDR"/>
                             <constraint firstItem="UWo-um-OZM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="byJ-LV-tAm"/>
+                            <constraint firstItem="V0J-0d-l6a" firstAttribute="top" secondItem="2Fd-dn-fOD" secondAttribute="bottom" constant="14" id="gBu-pB-RFV"/>
                             <constraint firstItem="htr-zs-iF7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="hcB-vw-i1B"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UWo-um-OZM" secondAttribute="trailing" constant="29" id="hhQ-7j-R06"/>
                             <constraint firstItem="UWo-um-OZM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="24" id="lDC-0R-eRj"/>
+                            <constraint firstItem="2Fd-dn-fOD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lQl-Nd-U8P"/>
                             <constraint firstItem="xDe-A1-eVa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="m5g-SO-2LW"/>
                             <constraint firstItem="htr-zs-iF7" firstAttribute="top" secondItem="UWo-um-OZM" secondAttribute="bottom" constant="39" id="oVD-pl-F3F"/>
+                            <constraint firstItem="V0J-0d-l6a" firstAttribute="top" secondItem="2Fd-dn-fOD" secondAttribute="bottom" constant="14" id="oz2-JT-OJL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xDe-A1-eVa" secondAttribute="trailing" constant="10" id="uSu-vv-EdY"/>
+                            <constraint firstItem="UWo-um-OZM" firstAttribute="top" secondItem="V0J-0d-l6a" secondAttribute="bottom" constant="37" id="y6m-tm-DL0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -148,17 +175,18 @@
                         <outlet property="IPLivenessLabel" destination="2FC-0f-szG" id="rUV-kD-f9E"/>
                         <outlet property="IPLivenessSwitch" destination="Bmq-q8-pcK" id="IAP-Lq-G5x"/>
                         <outlet property="autoCaptureSwitch" destination="Iwp-Pu-c4C" id="Vcn-JV-F28"/>
+                        <outlet property="docTypeBox" destination="V0J-0d-l6a" id="rXS-ba-Nxg"/>
                         <outlet property="idPassportButton" destination="UWo-um-OZM" id="TML-6j-Bhh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87.200000000000003" y="-330.58470764617692"/>
+            <point key="canvasLocation" x="-88.405797101449281" y="-330.80357142857139"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="UKe-J6-0VC">
             <objects>
-                <viewController storyboardIdentifier="ConfirmationViewController" id="c4w-HX-fEr" customClass="ConfirmationViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmationViewController" id="c4w-HX-fEr" customClass="ConfirmationViewController" customModule="TruliooSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zAu-93-8z9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,7 +251,7 @@
         <!--Result View Controller-->
         <scene sceneID="vYW-x7-xeS">
             <objects>
-                <viewController storyboardIdentifier="ResultViewController" id="Vds-4k-Svr" customClass="ResultViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" id="Vds-4k-Svr" customClass="ResultViewController" customModule="TruliooSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1jp-Oe-lX1"/>
                         <viewControllerLayoutGuide type="bottom" id="S2t-49-oxb"/>
@@ -317,7 +345,7 @@
         <!--Trulioo Confirmation View Controller-->
         <scene sceneID="Wik-7x-xgC">
             <objects>
-                <viewController storyboardIdentifier="TruliooConfirmationViewController" id="K6y-fl-K25" customClass="TruliooConfirmationViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TruliooConfirmationViewController" id="K6y-fl-K25" customClass="TruliooConfirmationViewController" customModule="TruliooSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cG1-DD-b5S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -629,7 +657,7 @@
         <!--Trulioo Result View Controller-->
         <scene sceneID="Ium-il-mTM">
             <objects>
-                <viewController storyboardIdentifier="TruliooResultViewController" id="Azx-ju-fbL" customClass="TruliooResultViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TruliooResultViewController" id="Azx-ju-fbL" customClass="TruliooResultViewController" customModule="TruliooSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AwK-Z8-zgP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -676,7 +704,7 @@
         <!--Classification Error View Controller-->
         <scene sceneID="1MO-k6-dnm">
             <objects>
-                <viewController storyboardIdentifier="ClassificationErrorViewController" id="P9j-hr-UuS" customClass="ClassificationErrorViewController" customModule="SampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClassificationErrorViewController" id="P9j-hr-UuS" customClass="ClassificationErrorViewController" customModule="TruliooSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3pe-X4-oO5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

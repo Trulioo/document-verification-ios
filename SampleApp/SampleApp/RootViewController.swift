@@ -16,9 +16,11 @@ import AcuantHGLiveness
 import AcuantIPLiveness
 import AVFoundation
 
-class RootViewController: UIViewController , InitializationDelegate,CreateInstanceDelegate,UploadImageDelegate,GetDataDelegate, FacialMatchDelegate,DeleteDelegate,AcuantHGLivenessDelegate,CameraCaptureDelegate,LivenessSetupDelegate,LivenessTestDelegate,LivenessTestResultDelegate, LivenessTestCredentialDelegate{
+class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate,InitializationDelegate, FacialMatchDelegate,DeleteDelegate,AcuantHGLivenessDelegate,CameraCaptureDelegate,LivenessSetupDelegate,LivenessTestDelegate,LivenessTestResultDelegate, LivenessTestCredentialDelegate{
     
-
+    let documentTypeArray = ["DrivingLicence","Passport"]
+    let docTypepickerView = UIPickerView()
+    
     @IBOutlet var autoCaptureSwitch : UISwitch!
     
     public var capturedFrontImage : UIImage?
@@ -52,6 +54,11 @@ class RootViewController: UIViewController , InitializationDelegate,CreateInstan
     
     @IBOutlet weak var IPLivenessLabel: UILabel!
     @IBOutlet weak var IPLivenessSwitch: UISwitch!
+    
+    
+    @IBOutlet weak var docTypeBox: UITextField!
+    let toolBar = UIToolbar(frame:CGRect(x:0, y:0, width: UIScreen.main.bounds.width, height:45))
+    var doneButton:UIBarButtonItem!
     
     @IBAction func iPLivenessTapped(_ sender: Any) {
         isIPLivenessEnabled = IPLivenessSwitch.isOn
@@ -164,6 +171,7 @@ class RootViewController: UIViewController , InitializationDelegate,CreateInstan
         if(self.capturedLiveFace != nil){
             confirmController.liveImage = self.capturedLiveFace
         }
+        confirmController.docType = docTypeBox.text!
         
         self.navigationController?.pushViewController(confirmController, animated: true)
     }
@@ -262,61 +270,6 @@ class RootViewController: UIViewController , InitializationDelegate,CreateInstan
             self.navigationController?.pushViewController(liveFaceViewController, animated: true)
         }
         
-    }
-
-    
-    func showResult(data:Array<String>?,front:String?,back:String?,sign:String?,face:String?){
-        DispatchQueue.global().async {
-            if(Credential.endpoints().frmEndpoint != nil){
-                while(self.isProcessingFacialMatch == true){
-                    sleep(1)
-                }
-            }
-            DispatchQueue.main.async {
-                self.hideProgressView()
-                let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-                let resultViewController = storyBoard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
-                
-                if(self.capturedFacialMatchResult != nil){
-                    var dataWithFacialData = data
-                    dataWithFacialData?.insert("Face matched :\(self.capturedFacialMatchResult!.isMatch)", at: 0)
-                    
-                    dataWithFacialData?.insert("Face Match score :\(self.capturedFacialMatchResult!.score)", at: 0)
-                    
-                    if(self.isLiveFace){
-                        dataWithFacialData?.insert("Is live Face : true", at: 0)
-                    }else{
-                        dataWithFacialData?.insert("Is live Face : false", at: 0)
-                    }
-                    
-                    resultViewController.data = dataWithFacialData
-                }else{
-                    resultViewController.data = data
-                }
-                resultViewController.frontImageUrl = front
-                resultViewController.backImageUrl = back
-                resultViewController.signImageUrl = sign
-                resultViewController.faceImageUrl = face
-                resultViewController.username = Credential.username()
-                resultViewController.password = Credential.password()
-                self.navigationController?.pushViewController(resultViewController, animated: true)
-            }
-        }
-    }
-    
-    func showHealthCardResult(data:Array<String>?,front:UIImage?,back:UIImage?){
-        DispatchQueue.main.async {
-            self.hideProgressView()
-            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-            let resultViewController = storyBoard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
-            
-            
-            resultViewController.data = data
-            
-            resultViewController.front = front
-            resultViewController.back = back
-            self.navigationController?.pushViewController(resultViewController, animated: true)
-        }
     }
     
     // IP Liveness
@@ -429,167 +382,36 @@ class RootViewController: UIViewController , InitializationDelegate,CreateInstan
     public func confirmImage(image:UIImage,side:CardSide){
         if(side==CardSide.Front){
             capturedFrontImage = image
-            
-            // Create instance
-            self.showProgressView(text: "Classifying...")
-            
-            idOptions = IdOptions()
-            idOptions?.cardSide = CardSide.Front
-            idOptions?.isHealthCard = false
-            idOptions?.isRetrying = isRetrying
-            
-            idData = IdData()
-            idData?.image = capturedFrontImage
-            if(isRetrying){
-                numerOfClassificationAttempts = numerOfClassificationAttempts + 1
-                AcuantDocumentProcessing.uploadImage( instancdId: documentInstance!, data: idData!, options: idOptions!, delegate: self)
-            }else{
-                AcuantDocumentProcessing.createInstance(options: idOptions!, delegate:self)
-            }
-        }else{
+        } else {
             capturedBackImage = image
-            self.showProgressView(text: "Processing...")
-            
-            idOptions = IdOptions()
-            idOptions?.cardSide = CardSide.Back
-            idOptions?.isHealthCard = false
-            idOptions?.isRetrying = false
-            
-            idData = IdData()
-            idData?.image = capturedBackImage
-            AcuantDocumentProcessing.uploadImage( instancdId: documentInstance!, data: idData!, options: idOptions!, delegate: self)
+        }
+        if(side==CardSide.Front && self.isBackSideRequired()){
+            // Capture Back Side
+            let alert = UIAlertController(title: NSLocalizedString("Back Side?", comment: ""), message: NSLocalizedString("Scan the back side of the ID document", comment: ""), preferredStyle:UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+            { action -> Void in
+                self.side = CardSide.Back
+                self.captureWaitTime = 2
+                self.showDocumentCaptureCamera()
+            })
+            self.present(alert, animated: true, completion: nil)
+        } else{
+            let alert = UIAlertController(title: NSLocalizedString("Live Photo", comment: ""), message: NSLocalizedString("Capture Live Photo Now", comment: ""), preferredStyle:UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+            { action -> Void in
+                self.captureWaitTime = 2
+                self.showFacialCaptureInterface()
+                self.isProcessing = true
+                self.showProgressView(text: "Processing...")
+            })
+            alert.addAction(UIAlertAction(title: "Skip", style: UIAlertAction.Style.default)
+            { action -> Void in
+                self.goToTruliooPage()
+            })
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func instanceCreated(instanceId: String?, error: AcuantError?) {
-        if(error == nil){
-            documentInstance = instanceId
-            // Upload and Classify ID/Passport image
-            AcuantDocumentProcessing.uploadImage( instancdId: documentInstance!, data: idData!, options: idOptions!, delegate: self)
-            
-        }else{
-            self.hideProgressView()
-            CustomAlerts.displayError(message: "\(error!.errorCode) : " + (error?.errorDescription)!)
-        }
-    }
-    
-    func imageUploaded(error: AcuantError?,classification:Classification?) {
-        if(error == nil){
-            self.hideProgressView()
-            if(self.idOptions?.cardSide == CardSide.Front){
-                if(self.isBackSideRequired(classification: classification)){
-                    // Capture Back Side
-                    let alert = UIAlertController(title: NSLocalizedString("Back Side?", comment: ""), message: NSLocalizedString("Scan the back side of the ID document", comment: ""), preferredStyle:UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
-                    { action -> Void in
-                        self.side = CardSide.Back
-                        self.captureWaitTime = 2
-                        self.showDocumentCaptureCamera()
-                    })
-                    self.present(alert, animated: true, completion: nil)
-                }else{
-                    if(Credential.endpoints().frmEndpoint != nil){
-                        self.showFacialCaptureInterface()
-                        self.isProcessing = true
-                        self.showProgressView(text: "Processing...")
-                    }
-                    else{
-                        goToTruliooPage()
-                    }
-                }
-            }else{
-                if(Credential.endpoints().frmEndpoint != nil){
-                    let alert = UIAlertController(title: NSLocalizedString("Live Photo?", comment: ""), message: NSLocalizedString("Capture Live Photo Now", comment: ""), preferredStyle:UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
-                    { action -> Void in
-                        self.captureWaitTime = 2
-                        self.showFacialCaptureInterface()
-                        self.isProcessing = true
-                        self.showProgressView(text: "Processing...")
-                    })
-                    alert.addAction(UIAlertAction(title: "Skip", style: UIAlertAction.Style.default)
-                    { action -> Void in
-                        self.goToTruliooPage()
-                    })
-                    self.present(alert, animated: true, completion: nil)
-                }
-                else{
-                    goToTruliooPage()
-                }
-            }
-            
-        }else{
-            self.hideProgressView()
-            if(error?.errorCode == AcuantErrorCodes.ERROR_CouldNotClassifyDocument){
-                let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-                let errorController = storyBoard.instantiateViewController(withIdentifier: "ClassificationErrorViewController") as! ClassificationErrorViewController
-                if(self.idOptions?.cardSide == CardSide.Front){
-                    errorController.image = self.capturedFrontImage
-                }else{
-                    errorController.image = self.capturedBackImage
-                }
-                self.navigationController?.pushViewController(errorController, animated: true)
-            }else{
-                CustomAlerts.displayError(message: "\(error!.errorCode) : " + (error?.errorDescription)!)
-            }
-        }
-    }
-    
-    func processingResultReceived(processingResult: ProcessingResult) {
-        if(processingResult.error == nil){
-            let idResult = processingResult as! IDResult
-            if(idResult.fields == nil){
-                CustomAlerts.displayError(message: "Could not extract data")
-                isProcessing = false
-                return
-            }else if(idResult.fields!.documentFields == nil){
-                CustomAlerts.displayError(message: "Could not extract data")
-                isProcessing = false
-                return
-            }else if(idResult.fields!.documentFields!.count==0){
-                CustomAlerts.displayError(message: "Could not extract data")
-                isProcessing = false
-                return
-            }
-            let fields : Array<DocumentField>! = idResult.fields!.documentFields!
-            
-            var frontImageUri: String? = nil
-            var backImageUri: String? = nil
-            var signImageUri: String? = nil
-            var faceImageUri: String? = nil
-            
-            var dataArray = Array<String>()
-            
-            dataArray.append("Authentication Result : \(Utils.getAuthResultString(authResult: idResult.result))")
-            for field in fields{
-                if(field.type == "string"){
-                    dataArray.append("\(field.key!) : \(field.value!)")
-                }else if(field.type == "datetime"){
-                    dataArray.append("\(field.key!) : \(Utils.dateFieldToDateString(dateStr: field.value!)!)")
-                }else if (field.key == "Photo" && field.type == "uri") {
-                    faceImageUri = field.value
-                    capturedFaceImageUrl = faceImageUri
-                } else if (field.key == "Signature" && field.type == "uri") {
-                    signImageUri = field.value
-                }
-            }
-            
-            for image in (idResult.images?.images!)! {
-                if (image.side == 0) {
-                    frontImageUri = image.uri
-                } else if (image.side == 1) {
-                    backImageUri = image.uri
-                }
-            }
-            isProcessing = false
-            showResult(data: dataArray, front: frontImageUri, back: backImageUri, sign: signImageUri, face: faceImageUri)
-        }
-        else{
-            if let msg = processingResult.error?.errorDescription {
-                CustomAlerts.displayError(message: msg)
-            }
-        }
-    }
     
     public func retryCapture(){
         showDocumentCaptureCamera()
@@ -602,6 +424,13 @@ class RootViewController: UIViewController , InitializationDelegate,CreateInstan
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.donePressed))
+        toolBar.items = [doneButton]
+        docTypepickerView.dataSource = self
+        docTypepickerView.delegate = self as UIPickerViewDelegate
+        docTypeBox.inputAccessoryView = toolBar
+        docTypeBox.text = documentTypeArray.first
+        docTypeBox.inputView = docTypepickerView
         
         autoCaptureSwitch.setOn(true, animated: false)
 
@@ -646,19 +475,36 @@ class RootViewController: UIViewController , InitializationDelegate,CreateInstan
         super.didReceiveMemoryWarning()
     }
     
-    func isBackSideRequired(classification:Classification?)->Bool{
-        if(classification == nil){
-            return false
-        }
-        var isBackSideRequired : Bool = false
-        let supportedImages : [Dictionary<String, Int>]? = classification?.type?.supportedImages as? [Dictionary<String, Int>]
-        if(supportedImages != nil){
-            for image in supportedImages!{
-                if(image["Light"]==0 && image["Side"]==1){
-                    isBackSideRequired = true
-                }
-            }
-        }
-        return isBackSideRequired
+    func isBackSideRequired()->Bool{
+        return docTypeBox.text! != "Passport"
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == docTypepickerView{
+            return documentTypeArray.count
+        }
+        return 0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == docTypepickerView {
+            return documentTypeArray[row]
+        }
+        return nil
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(pickerView == docTypepickerView) {
+            docTypeBox.text = documentTypeArray[row]
+        }
+    }
+    
+    @objc func donePressed(){
+        view.endEditing(true)
+    }
+    
 }
