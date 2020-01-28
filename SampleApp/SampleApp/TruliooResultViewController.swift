@@ -42,7 +42,7 @@ class TruliooResultViewController: UIViewController {
     
     func verify(){
         let helper = TruliooHelper()
-        helper.verify(piiInfo: piiInfo!, onSuccess: onSuccess, onFailure: { (error, statusCode, response) in
+        helper.Verify(piiInfo: piiInfo!, onSuccess: onSuccess, onFailure: { (error, statusCode, response) in
             var displayString = ""
             displayString += "Fail, Status Code: \(statusCode) \n"
             displayString += "Error: \(error) \n"

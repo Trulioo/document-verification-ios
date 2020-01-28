@@ -45,7 +45,7 @@ class TruliooConfirmationViewController: UIViewController, UIPickerViewDataSourc
             self.present(alert, animated: true)
         }
         else{
-            let pii = PiiInfo(firstName: firstName, lastName: lastName, countryCode: countryCodeBox.text!, documentType: docTypeBox.text!, frontImage: frontImage!, backImage: backImage, liveImage: backImage)
+            let pii = PiiInfo(firstName: firstName, lastName: lastName, countryCode: countryCodeBox.text!, documentType: docTypeBox.text!, frontImage: frontImage!, backImage: backImage, liveImage: liveImage)
         
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let resultVC : TruliooResultViewController = storyBoard.instantiateViewController(withIdentifier: "TruliooResultViewController") as! TruliooResultViewController

@@ -52,17 +52,9 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
 
     @IBOutlet var idPassportButton: UIButton!
     
-    @IBOutlet weak var IPLivenessLabel: UILabel!
-    @IBOutlet weak var IPLivenessSwitch: UISwitch!
-    
-    
     @IBOutlet weak var docTypeBox: UITextField!
     let toolBar = UIToolbar(frame:CGRect(x:0, y:0, width: UIScreen.main.bounds.width, height:45))
     var doneButton:UIBarButtonItem!
-    
-    @IBAction func iPLivenessTapped(_ sender: Any) {
-        isIPLivenessEnabled = IPLivenessSwitch.isOn
-    }
     
     private func showProgressView(text:String = ""){
         DispatchQueue.main.async {
@@ -91,14 +83,6 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
                     self.isIPLivenessEnabled = isEnabled
                     self.hideProgressView()
                     self.showDocumentCaptureCamera()
-                    
-                    DispatchQueue.main.async {
-                        self.IPLivenessSwitch.isOn = isEnabled
-                        if(isEnabled){
-                            self.IPLivenessLabel.isEnabled = true
-                            self.IPLivenessSwitch.isEnabled = true
-                        }
-                    }
                 
                 }, onError: {
                     error in
@@ -144,14 +128,6 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     func livenessTestCredentialReceived(result:Bool){
         isInitialized = true
         isIPLivenessEnabled = result
-        
-        DispatchQueue.main.async{
-            self.IPLivenessSwitch.isOn = result
-            if(self.isIPLivenessEnabled){
-                self.IPLivenessLabel.isEnabled = true
-                self.IPLivenessSwitch.isEnabled = true
-            }
-        }
     }
     
     func goToTruliooPage(){
@@ -448,7 +424,9 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     func initializationFinished(error: AcuantError?) {
         self.hideProgressView()
         if(error == nil){
-            AcuantIPLiveness.getLivenessTestCredential(delegate: self)
+            self.hideProgressView()
+            self.isInitialized = true
+            self.resetData()
         }else{
             if let msg = error?.errorDescription {
                 CustomAlerts.displayError(message: "\(error!.errorCode) : " + msg)

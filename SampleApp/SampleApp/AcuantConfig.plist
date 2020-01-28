@@ -7,7 +7,7 @@
 	<key>acuant_password</key>
 	<string>xxx</string>
 	<key>acuant_subscription</key>
-	<string>xxx</string>
+	<string></string>
 	<key>frm_endpoint</key>
 	<string>https://frm.acuant.net</string>
 	<key>med_endpoint</key>
