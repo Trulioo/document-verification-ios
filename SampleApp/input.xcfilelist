@@ -9,4 +9,5 @@ $(SRCROOT)/../EmbeddedFrameworks/AcuantDocumentProcessing.framework
 $(SRCROOT)/../EmbeddedFrameworks/AcuantHGLiveness.framework
 $(SRCROOT)/../EmbeddedFrameworks/AcuantFaceMatch.framework
 $(SRCROOT)/../EmbeddedFrameworks/AcuantImagePreparation.framework
-
+$(SRCROOT)/../EmbeddedFrameworks/AcuantPassiveLiveness.framework
+$(SRCROOT)/../EmbeddedFrameworks/TesseractOCR.framework

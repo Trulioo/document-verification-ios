@@ -12,3 +12,31 @@ This project requires that the system has [https://github.com/Carthage/Carthage]
 Enter Acuant account in  SampleApp/SampleApp/AcuantConfig.plist
 
 Enter Trulioo credentials in  SampleApp/SampleApp/TruliooHelper.swift
+
+**As of May 1, 2020, the AcuantConfig.plist file should look like this**  
+  
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"   "http://www.apple.com/DTDs/PropertyList-1.0.dtd">  
+<plist version="1.0">  
+   <dict>  
+       <key>acuant_username</key>  
+       <string>xxx</string>  
+       <key>acuant_password</key>  
+       <string>xxx</string>  
+       <key>acuant_subscription</key>  
+       <string></string>  
+       <key>frm_endpoint</key>  
+       <string>https://frm.acuant.net</string>  
+       <key>passive_liveness_endpoint</key>  
+       <string>https://passlive.acuant.net</string>  
+       <key>med_endpoint</key>  
+       <string>https://medicscan.acuant.net</string>  
+       <key>assureid_endpoint</key>  
+       <string>https://services.assureid.net</string>  
+       <key>acas_endpoint</key>  
+       <string>https://acas.acuant.net</string>  
+       <key>ozone_endpoint</key>  
+       <string>https://ozone.acuant.net</string>  
+   </dict>  
+</plist>  
+  

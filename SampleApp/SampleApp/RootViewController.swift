@@ -56,6 +56,7 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     let toolBar = UIToolbar(frame:CGRect(x:0, y:0, width: UIScreen.main.bounds.width, height:45))
     var doneButton:UIBarButtonItem!
     
+    
     private func showProgressView(text:String = ""){
         DispatchQueue.main.async {
             self.progressView.messageView.text = text
@@ -155,7 +156,7 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     
     func livenessTestCredentialReceiveFailed(error:AcuantError){
         self.hideProgressView()
-        CustomAlerts.displayError(message: "\(error.errorCode) : \(error.errorDescription)" )
+        CustomAlerts.displayError(message: "\(error.errorCode) : \(String(describing: error.errorDescription))" )
     }
     
     func showDocumentCaptureCamera(){
@@ -260,7 +261,7 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     }
     
     func livenessTestCompleted() {
-        AcuantIPLiveness.getLivenessTestResult(token: ipLivenessSetupResult!.token!, userId: ipLivenessSetupResult!.userId!, delegate: self)
+        AcuantIPLiveness.getLivenessTestResult(token: ipLivenessSetupResult!.token, userId: ipLivenessSetupResult!.userId, delegate: self)
     }
     
     func livenessTestProcessing(progress: Double, message: String) {
@@ -270,7 +271,7 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
     }
     
     func livenessTestCompletedWithError(error: AcuantError?) {
-        AcuantIPLiveness.getLivenessTestResult(token: ipLivenessSetupResult!.token!, userId: ipLivenessSetupResult!.userId!, delegate: self)
+        AcuantIPLiveness.getLivenessTestResult(token: ipLivenessSetupResult!.token, userId: ipLivenessSetupResult!.userId, delegate: self)
     }
     
     func livenessTestResultReceived(result: LivenessTestResult) {

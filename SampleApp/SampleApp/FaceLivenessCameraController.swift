@@ -48,6 +48,7 @@ class FaceLivenessCameraController : UIViewController, AcuantHGLiveFaceCaptureDe
         if (captureSession?.isRunning == true) {
             captureSession.stopRunning()
         }
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -126,6 +127,7 @@ class FaceLivenessCameraController : UIViewController, AcuantHGLiveFaceCaptureDe
             case .FACE_MOVED:
                 self.addMessage(message: "Hold Steady")
                 break
+        @unknown default: break
         }
         
         if(liveFaceDetails?.faceRect != nil && liveFaceDetails?.cleanAperture != nil){

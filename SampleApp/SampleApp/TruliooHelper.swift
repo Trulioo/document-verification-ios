@@ -15,7 +15,7 @@ enum APIError: Error{
     case UnknownError(String)
 }
 
-let maxImageSize = 15 * 1024 * 1024
+let maxImageSize = 4 * 1024 * 1024 / 1.37 //dividing by 1.37 accounts for the ~1.37 image size increase when converting to base64
 
 public class TruliooHelper{
     
@@ -166,7 +166,7 @@ public class TruliooHelper{
         }
         var quality:CGFloat = 1.0
         var imageData = image!.jpegData(compressionQuality: quality)
-        while(imageData!.count > maxImageSize && quality > 0){
+        while(Double(imageData!.count) > maxImageSize && quality > 0){
             quality -= 0.1
             imageData = image!.jpegData(compressionQuality: quality)
         }
