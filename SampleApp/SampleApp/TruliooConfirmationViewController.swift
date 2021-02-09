@@ -31,6 +31,10 @@ class TruliooConfirmationViewController: UIViewController, UIPickerViewDataSourc
     public var liveImage: UIImage? = nil
     public var docType:String? = nil
     
+    public var frontMetaData:String?
+    public var backMetaData:String?
+    public var selfieMetaData:String?
+    
     let toolBar = UIToolbar(frame:CGRect(x:0, y:0, width: UIScreen.main.bounds.width, height:45))
     var doneButton:UIBarButtonItem!
     
@@ -45,7 +49,7 @@ class TruliooConfirmationViewController: UIViewController, UIPickerViewDataSourc
             self.present(alert, animated: true)
         }
         else{
-            let pii = PiiInfo(firstName: firstName, lastName: lastName, countryCode: countryCodeBox.text!, documentType: docTypeBox.text!, frontImage: frontImage!, backImage: backImage, liveImage: liveImage)
+            let pii = PiiInfo(firstName: firstName, lastName: lastName, countryCode: countryCodeBox.text!, documentType: docTypeBox.text!, frontImage: frontImage!, backImage: backImage, liveImage: liveImage, frontMetaData: frontMetaData!, backMetaData: backMetaData, liveMetaData: selfieMetaData)
         
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let resultVC : TruliooResultViewController = storyBoard.instantiateViewController(withIdentifier: "TruliooResultViewController") as! TruliooResultViewController

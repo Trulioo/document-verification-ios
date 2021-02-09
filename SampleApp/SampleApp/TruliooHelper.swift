@@ -15,8 +15,6 @@ enum APIError: Error{
     case UnknownError(String)
 }
 
-let maxImageSize = 4 * 1024 * 1024 / 1.37 //dividing by 1.37 accounts for the ~1.37 image size increase when converting to base64
-
 public class TruliooHelper{
     
     private let username = "xxx"
@@ -151,26 +149,13 @@ public class TruliooHelper{
     }
     
     private func getVerifyRequest(piiInfo: PiiInfo) -> DocumentVerificationRequest{
-        let frontImageString = convertAndCompressImageToBase64(image: piiInfo.frontImage)
-        let backImageString = convertAndCompressImageToBase64(image: piiInfo.backImage)
-        let liveImageString = convertAndCompressImageToBase64(image: piiInfo.liveImage)
+        let imageHelper = TruliooImageHelper()
+        let frontImageString = imageHelper.convertAndCompressImageToBase64(image: piiInfo.frontImage, metaData: piiInfo.frontMetaData)
+        let backImageString = imageHelper.convertAndCompressImageToBase64(image: piiInfo.backImage, metaData: piiInfo.backMetaData)
+        let liveImageString = imageHelper.convertAndCompressImageToBase64(image: piiInfo.liveImage, metaData: piiInfo.liveMetaData)
         
         let dataFields = DataFields(personInfo: PersonInfo(piiInfo: piiInfo), documentInfo: Document(frontImage: frontImageString!, backImage: backImageString, livePhoto: liveImageString, documentType: piiInfo.documentType))
         return DocumentVerificationRequest(countryCode: piiInfo.countryCode, dataFields: dataFields)
-    }
-    
-    private func convertAndCompressImageToBase64(image:UIImage?) -> String?{
-        if(image == nil)
-        {
-            return nil
-        }
-        var quality:CGFloat = 1.0
-        var imageData = image!.jpegData(compressionQuality: quality)
-        while(Double(imageData!.count) > maxImageSize && quality > 0){
-            quality -= 0.1
-            imageData = image!.jpegData(compressionQuality: quality)
-        }
-        return imageData?.base64EncodedString()
     }
 }
 

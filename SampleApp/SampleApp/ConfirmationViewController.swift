@@ -29,8 +29,7 @@ class ConfirmationViewController: UIViewController {
     @IBAction func confirmTapped(_ sender: Any) {
         let rootVC : RootViewController = self.navigationController?.viewControllers[0] as! RootViewController
         self.navigationController?.popViewController(animated: true)
-        rootVC.confirmImage(image: imageView.image!,side:side)
-        
+        rootVC.confirmed(image: imageView.image!, side: side)
     }
     
     @IBAction func retryTapped(_ sender: Any) {

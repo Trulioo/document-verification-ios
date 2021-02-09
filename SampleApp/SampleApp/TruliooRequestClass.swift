@@ -17,6 +17,10 @@ public struct PiiInfo{
     public let frontImage:UIImage
     public let backImage:UIImage?
     public let liveImage:UIImage?
+    
+    public let frontMetaData:String?
+    public let backMetaData:String?
+    public let liveMetaData:String?
 }
 
 class DocumentVerificationRequest: Codable{

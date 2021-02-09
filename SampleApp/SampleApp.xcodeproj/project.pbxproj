@@ -17,28 +17,7 @@
 		13AC65E620EE8F9000F0D494 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13AC65E420EE8F9000F0D494 /* LaunchScreen.storyboard */; };
 		13AC66BE20EED36D00F0D494 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AC66BD20EED36D00F0D494 /* CustomAlert.swift */; };
 		13D13F1420F6AC000052B1D7 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D13F1320F6AC000052B1D7 /* ConfirmationViewController.swift */; };
-		2AB494F7245C908900601A17 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AB494ED245C908900601A17 /* Media.xcassets */; };
-		2AB494F8245C908900601A17 /* AcuantMrzCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB494EE245C908900601A17 /* AcuantMrzCameraController.swift */; };
-		2AB494F9245C908900601A17 /* AcuantMrzCaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB494EF245C908900601A17 /* AcuantMrzCaptureSession.swift */; };
-		2AB494FA245C908900601A17 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB494F2245C908900601A17 /* StringExt.swift */; };
-		2AB494FB245C908900601A17 /* AcuantMrzParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB494F3245C908900601A17 /* AcuantMrzParser.swift */; };
-		2AB494FC245C908900601A17 /* AcuantOcrDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB494F4245C908900601A17 /* AcuantOcrDetector.swift */; };
-		2AB494FD245C908900601A17 /* AcuantMrzResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB494F5245C908900601A17 /* AcuantMrzResult.swift */; };
-		2AE585BF245A0BA800014E96 /* UIScreenExtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE5859B245A0BA800014E96 /* UIScreenExtn.swift */; };
-		2AE585C0245A0BA800014E96 /* UIImageExtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE5859C245A0BA800014E96 /* UIImageExtn.swift */; };
-		2AE585C1245A0BA800014E96 /* AcuantCameraOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE5859E245A0BA800014E96 /* AcuantCameraOptions.swift */; };
-		2AE585C2245A0BA800014E96 /* DocumentCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585A0245A0BA800014E96 /* DocumentCameraController.swift */; };
-		2AE585C3245A0BA800014E96 /* DocumentCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585A2245A0BA800014E96 /* DocumentCaptureDelegate.swift */; };
-		2AE585C4245A0BA800014E96 /* CameraCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585A3245A0BA800014E96 /* CameraCaptureDelegate.swift */; };
-		2AE585C5245A0BA800014E96 /* FrameAnalysisDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585A4245A0BA800014E96 /* FrameAnalysisDelegate.swift */; };
-		2AE585C6245A0BA800014E96 /* DocumentCaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585A5245A0BA800014E96 /* DocumentCaptureSession.swift */; };
-		2AE585CE245A0BA800014E96 /* CaptureConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585B2245A0BA800014E96 /* CaptureConstants.swift */; };
-		2AE585CF245A0BA800014E96 /* CameraDocumentOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585B4245A0BA800014E96 /* CameraDocumentOverlayView.swift */; };
-		2AE585D0245A0BA800014E96 /* AcuantCameraTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585B5245A0BA800014E96 /* AcuantCameraTextView.swift */; };
-		2AE585D1245A0BA800014E96 /* CameraCornerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585B6245A0BA800014E96 /* CameraCornerOverlayView.swift */; };
-		2AE585D2245A0BA800014E96 /* CameraCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE585B7245A0BA800014E96 /* CameraCornerView.swift */; };
-		2AE585D4245A0BCE00014E96 /* AcuantCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE585BE245A0BA800014E96 /* AcuantCamera.framework */; };
-		2AE585D5245A0BCE00014E96 /* AcuantCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE585BE245A0BA800014E96 /* AcuantCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		241DDDC225C86E28000D9EEE /* TruliooImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241DDDC125C86E28000D9EEE /* TruliooImageHelper.swift */; };
 		835108EA22FA425300CC8329 /* AcuantProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835108E922FA425300CC8329 /* AcuantProgressView.swift */; };
 		8351094C22FB462B00CC8329 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8351094A22FB462B00CC8329 /* Localizable.strings */; };
 		8351095322FB463B00CC8329 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8351095022FB463B00CC8329 /* Main.strings */; };
@@ -46,6 +25,10 @@
 		C229E7B62224520700FFAC6F /* AcuantConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = C229E7B52224520700FFAC6F /* AcuantConfig.plist */; };
 		C2B08D5922C6AF31003F2CBE /* FaceLivenessCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B08D5822C6AF31003F2CBE /* FaceLivenessCameraController.swift */; };
 		ED2517092370E54C00B53736 /* TruliooConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2517082370E54C00B53736 /* TruliooConfirmationViewController.swift */; };
+		ED2698E625ACF3BA00443DCA /* AcuantFaceCapture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2698E525ACF3B400443DCA /* AcuantFaceCapture.framework */; };
+		ED2698E725ACF3BA00443DCA /* AcuantFaceCapture.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED2698E525ACF3B400443DCA /* AcuantFaceCapture.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED26991125AD053000443DCA /* AcuantCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED26991025AD052B00443DCA /* AcuantCamera.framework */; };
+		ED26991225AD053000443DCA /* AcuantCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED26991025AD052B00443DCA /* AcuantCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED38E481236BB14A0072B736 /* TruliooTestConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED38E480236BB14A0072B736 /* TruliooTestConnectionViewController.swift */; };
 		EDB4060E23723CCA001CF27B /* TruliooResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB4060D23723CCA001CF27B /* TruliooResultViewController.swift */; };
 		EDB40610237355A0001CF27B /* TruliooRequestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB4060F237355A0001CF27B /* TruliooRequestClass.swift */; };
@@ -54,9 +37,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2AE585BD245A0BA800014E96 /* PBXContainerItemProxy */ = {
+		ED2698E425ACF3B400443DCA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2AE585B9245A0BA800014E96 /* AcuantCamera.xcodeproj */;
+			containerPortal = ED2698D525ACF3B400443DCA /* AcuantFaceCapture.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 83F0BF7123D8B28E00140A06;
+			remoteInfo = AcuantFaceCapture;
+		};
+		ED26990F25AD052B00443DCA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED26990B25AD052B00443DCA /* AcuantCamera.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 134F59D221FA0BA600CEDBFC;
 			remoteInfo = AcuantCamera;
@@ -70,7 +60,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2AE585D5245A0BCE00014E96 /* AcuantCamera.framework in Embed Frameworks */,
+				ED2698E725ACF3BA00443DCA /* AcuantFaceCapture.framework in Embed Frameworks */,
+				ED26991225AD053000443DCA /* AcuantCamera.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,31 +81,9 @@
 		13AC65E720EE8F9000F0D494 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13AC66BD20EED36D00F0D494 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		13D13F1320F6AC000052B1D7 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		241DDDC125C86E28000D9EEE /* TruliooImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruliooImageHelper.swift; sourceTree = "<group>"; };
 		2A4D711C245B9997004CF703 /* AcuantPassiveLiveness.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AcuantPassiveLiveness.framework; path = ../EmbeddedFrameworks/AcuantPassiveLiveness.framework; sourceTree = "<group>"; };
-		2AB494ED245C908900601A17 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		2AB494EE245C908900601A17 /* AcuantMrzCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcuantMrzCameraController.swift; sourceTree = "<group>"; };
-		2AB494EF245C908900601A17 /* AcuantMrzCaptureSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcuantMrzCaptureSession.swift; sourceTree = "<group>"; };
-		2AB494F2245C908900601A17 /* StringExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
-		2AB494F3245C908900601A17 /* AcuantMrzParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcuantMrzParser.swift; sourceTree = "<group>"; };
-		2AB494F4245C908900601A17 /* AcuantOcrDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcuantOcrDetector.swift; sourceTree = "<group>"; };
-		2AB494F5245C908900601A17 /* AcuantMrzResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcuantMrzResult.swift; sourceTree = "<group>"; };
 		2AB494FE245C90B700601A17 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = ../EmbeddedFrameworks/TesseractOCR.framework; sourceTree = "<group>"; };
-		2AE5859B245A0BA800014E96 /* UIScreenExtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScreenExtn.swift; sourceTree = "<group>"; };
-		2AE5859C245A0BA800014E96 /* UIImageExtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtn.swift; sourceTree = "<group>"; };
-		2AE5859E245A0BA800014E96 /* AcuantCameraOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcuantCameraOptions.swift; sourceTree = "<group>"; };
-		2AE585A0245A0BA800014E96 /* DocumentCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCameraController.swift; sourceTree = "<group>"; };
-		2AE585A2245A0BA800014E96 /* DocumentCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCaptureDelegate.swift; sourceTree = "<group>"; };
-		2AE585A3245A0BA800014E96 /* CameraCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCaptureDelegate.swift; sourceTree = "<group>"; };
-		2AE585A4245A0BA800014E96 /* FrameAnalysisDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameAnalysisDelegate.swift; sourceTree = "<group>"; };
-		2AE585A5245A0BA800014E96 /* DocumentCaptureSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCaptureSession.swift; sourceTree = "<group>"; };
-		2AE585B0245A0BA800014E96 /* AcuantCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcuantCamera.h; sourceTree = "<group>"; };
-		2AE585B2245A0BA800014E96 /* CaptureConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureConstants.swift; sourceTree = "<group>"; };
-		2AE585B4245A0BA800014E96 /* CameraDocumentOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraDocumentOverlayView.swift; sourceTree = "<group>"; };
-		2AE585B5245A0BA800014E96 /* AcuantCameraTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcuantCameraTextView.swift; sourceTree = "<group>"; };
-		2AE585B6245A0BA800014E96 /* CameraCornerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCornerOverlayView.swift; sourceTree = "<group>"; };
-		2AE585B7245A0BA800014E96 /* CameraCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCornerView.swift; sourceTree = "<group>"; };
-		2AE585B8245A0BA800014E96 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AE585B9245A0BA800014E96 /* AcuantCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AcuantCamera.xcodeproj; sourceTree = "<group>"; };
 		2AE585EE245A0C9F00014E96 /* AcuantIPLiveness.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AcuantIPLiveness.framework; path = ../EmbeddedFrameworks/AcuantIPLiveness.framework; sourceTree = "<group>"; };
 		2AE585F0245A0C9F00014E96 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = ../EmbeddedFrameworks/KeychainAccess.framework; sourceTree = "<group>"; };
 		2AE585F1245A0C9F00014E96 /* AcuantHGLiveness.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AcuantHGLiveness.framework; path = ../EmbeddedFrameworks/AcuantHGLiveness.framework; sourceTree = "<group>"; };
@@ -136,6 +105,41 @@
 		C229E7B52224520700FFAC6F /* AcuantConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AcuantConfig.plist; sourceTree = "<group>"; };
 		C2B08D5822C6AF31003F2CBE /* FaceLivenessCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceLivenessCameraController.swift; sourceTree = "<group>"; };
 		ED2517082370E54C00B53736 /* TruliooConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruliooConfirmationViewController.swift; sourceTree = "<group>"; };
+		ED2698D525ACF3B400443DCA /* AcuantFaceCapture.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AcuantFaceCapture.xcodeproj; sourceTree = "<group>"; };
+		ED2698D925ACF3B400443DCA /* FaceAcuantCameraOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceAcuantCameraOptions.swift; sourceTree = "<group>"; };
+		ED2698DA25ACF3B400443DCA /* AcuantFaceCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcuantFaceCapture.h; sourceTree = "<group>"; };
+		ED2698DB25ACF3B400443DCA /* AcuantFaceCaptureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantFaceCaptureController.swift; sourceTree = "<group>"; };
+		ED2698DC25ACF3B400443DCA /* FaceCameraCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCameraCornerView.swift; sourceTree = "<group>"; };
+		ED2698DD25ACF3B400443DCA /* FaceCameraCornerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCameraCornerOverlayView.swift; sourceTree = "<group>"; };
+		ED2698DE25ACF3B400443DCA /* AcuantFaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantFaceDetails.swift; sourceTree = "<group>"; };
+		ED2698DF25ACF3B400443DCA /* AcuantFaceState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantFaceState.swift; sourceTree = "<group>"; };
+		ED2698E025ACF3B400443DCA /* AcuantFaceCaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantFaceCaptureSession.swift; sourceTree = "<group>"; };
+		ED2698E125ACF3B400443DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED2698EA25AD052B00443DCA /* DocumentFeedbackDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFeedbackDelegate.swift; sourceTree = "<group>"; };
+		ED2698EC25AD052B00443DCA /* UIScreenExtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtn.swift; sourceTree = "<group>"; };
+		ED2698ED25AD052B00443DCA /* UIImageExtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtn.swift; sourceTree = "<group>"; };
+		ED2698EF25AD052B00443DCA /* AcuantCameraOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantCameraOptions.swift; sourceTree = "<group>"; };
+		ED2698F125AD052B00443DCA /* DocumentCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraController.swift; sourceTree = "<group>"; };
+		ED2698F325AD052B00443DCA /* AutoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCaptureDelegate.swift; sourceTree = "<group>"; };
+		ED2698F425AD052B00443DCA /* DocumentCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCaptureDelegate.swift; sourceTree = "<group>"; };
+		ED2698F525AD052B00443DCA /* CameraCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureDelegate.swift; sourceTree = "<group>"; };
+		ED2698F625AD052B00443DCA /* FrameAnalysisDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameAnalysisDelegate.swift; sourceTree = "<group>"; };
+		ED2698F725AD052B00443DCA /* DocumentCaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCaptureSession.swift; sourceTree = "<group>"; };
+		ED2698F925AD052B00443DCA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		ED2698FA25AD052B00443DCA /* AcuantMrzCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantMrzCameraController.swift; sourceTree = "<group>"; };
+		ED2698FB25AD052B00443DCA /* AcuantMrzCaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantMrzCaptureSession.swift; sourceTree = "<group>"; };
+		ED2698FE25AD052B00443DCA /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		ED2698FF25AD052B00443DCA /* AcuantMrzParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantMrzParser.swift; sourceTree = "<group>"; };
+		ED26990025AD052B00443DCA /* AcuantOcrDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantOcrDetector.swift; sourceTree = "<group>"; };
+		ED26990125AD052B00443DCA /* AcuantMrzResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantMrzResult.swift; sourceTree = "<group>"; };
+		ED26990225AD052B00443DCA /* AcuantCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcuantCamera.h; sourceTree = "<group>"; };
+		ED26990425AD052B00443DCA /* CaptureConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureConstants.swift; sourceTree = "<group>"; };
+		ED26990625AD052B00443DCA /* CameraDocumentOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDocumentOverlayView.swift; sourceTree = "<group>"; };
+		ED26990725AD052B00443DCA /* AcuantCameraTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuantCameraTextView.swift; sourceTree = "<group>"; };
+		ED26990825AD052B00443DCA /* CameraCornerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCornerOverlayView.swift; sourceTree = "<group>"; };
+		ED26990925AD052B00443DCA /* CameraCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCornerView.swift; sourceTree = "<group>"; };
+		ED26990A25AD052B00443DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED26990B25AD052B00443DCA /* AcuantCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AcuantCamera.xcodeproj; sourceTree = "<group>"; };
 		ED38E480236BB14A0072B736 /* TruliooTestConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruliooTestConnectionViewController.swift; sourceTree = "<group>"; };
 		EDB4060D23723CCA001CF27B /* TruliooResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruliooResultViewController.swift; sourceTree = "<group>"; };
 		EDB4060F237355A0001CF27B /* TruliooRequestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruliooRequestClass.swift; sourceTree = "<group>"; };
@@ -148,7 +152,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AE585D4245A0BCE00014E96 /* AcuantCamera.framework in Frameworks */,
+				ED2698E625ACF3BA00443DCA /* AcuantFaceCapture.framework in Frameworks */,
+				ED26991125AD053000443DCA /* AcuantCamera.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +203,7 @@
 				EDB4060D23723CCA001CF27B /* TruliooResultViewController.swift */,
 				EDB4060F237355A0001CF27B /* TruliooRequestClass.swift */,
 				EDB40611237368ED001CF27B /* TruliooResultClass.swift */,
+				241DDDC125C86E28000D9EEE /* TruliooImageHelper.swift */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -205,7 +211,8 @@
 		13AC662620EE954900F0D494 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2AE58598245A0BA800014E96 /* AcuantCamera */,
+				ED2698E825AD052B00443DCA /* AcuantCamera */,
+				ED2698D425ACF3B400443DCA /* AcuantFaceCapture */,
 				2AB494FE245C90B700601A17 /* TesseractOCR.framework */,
 				2A4D711C245B9997004CF703 /* AcuantPassiveLiveness.framework */,
 				2AE585F3245A0C9F00014E96 /* AcuantCommon.framework */,
@@ -223,13 +230,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2AB494EC245C908900601A17 /* Mrz */ = {
+		ED2698D425ACF3B400443DCA /* AcuantFaceCapture */ = {
 			isa = PBXGroup;
 			children = (
-				2AB494ED245C908900601A17 /* Media.xcassets */,
-				2AB494EE245C908900601A17 /* AcuantMrzCameraController.swift */,
-				2AB494EF245C908900601A17 /* AcuantMrzCaptureSession.swift */,
-				2AB494F0245C908900601A17 /* OCR */,
+				ED2698D525ACF3B400443DCA /* AcuantFaceCapture.xcodeproj */,
+				ED2698D825ACF3B400443DCA /* AcuantFaceCapture */,
+			);
+			name = AcuantFaceCapture;
+			path = ../AcuantFaceCapture;
+			sourceTree = "<group>";
+		};
+		ED2698D625ACF3B400443DCA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698E525ACF3B400443DCA /* AcuantFaceCapture.framework */,
 			);
 			path = Mrz;
 			sourceTree = "<group>";
@@ -334,10 +348,139 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2AE585BA245A0BA800014E96 /* Products */ = {
+		ED2698D825ACF3B400443DCA /* AcuantFaceCapture */ = {
 			isa = PBXGroup;
 			children = (
-				2AE585BE245A0BA800014E96 /* AcuantCamera.framework */,
+				ED2698D925ACF3B400443DCA /* FaceAcuantCameraOptions.swift */,
+				ED2698DA25ACF3B400443DCA /* AcuantFaceCapture.h */,
+				ED2698DB25ACF3B400443DCA /* AcuantFaceCaptureController.swift */,
+				ED2698DC25ACF3B400443DCA /* FaceCameraCornerView.swift */,
+				ED2698DD25ACF3B400443DCA /* FaceCameraCornerOverlayView.swift */,
+				ED2698DE25ACF3B400443DCA /* AcuantFaceDetails.swift */,
+				ED2698DF25ACF3B400443DCA /* AcuantFaceState.swift */,
+				ED2698E025ACF3B400443DCA /* AcuantFaceCaptureSession.swift */,
+				ED2698E125ACF3B400443DCA /* Info.plist */,
+			);
+			path = AcuantFaceCapture;
+			sourceTree = "<group>";
+		};
+		ED2698E825AD052B00443DCA /* AcuantCamera */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698E925AD052B00443DCA /* AcuantCamera */,
+				ED26990B25AD052B00443DCA /* AcuantCamera.xcodeproj */,
+			);
+			name = AcuantCamera;
+			path = ../AcuantCamera;
+			sourceTree = "<group>";
+		};
+		ED2698E925AD052B00443DCA /* AcuantCamera */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698EA25AD052B00443DCA /* DocumentFeedbackDelegate.swift */,
+				ED2698EB25AD052B00443DCA /* Extension */,
+				ED2698EE25AD052B00443DCA /* Camera */,
+				ED26990225AD052B00443DCA /* AcuantCamera.h */,
+				ED26990325AD052B00443DCA /* Constant */,
+				ED26990525AD052B00443DCA /* View */,
+				ED26990A25AD052B00443DCA /* Info.plist */,
+			);
+			path = AcuantCamera;
+			sourceTree = "<group>";
+		};
+		ED2698EB25AD052B00443DCA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698EC25AD052B00443DCA /* UIScreenExtn.swift */,
+				ED2698ED25AD052B00443DCA /* UIImageExtn.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		ED2698EE25AD052B00443DCA /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698EF25AD052B00443DCA /* AcuantCameraOptions.swift */,
+				ED2698F025AD052B00443DCA /* Document */,
+				ED2698F825AD052B00443DCA /* Mrz */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		ED2698F025AD052B00443DCA /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698F125AD052B00443DCA /* DocumentCameraController.swift */,
+				ED2698F225AD052B00443DCA /* Delegate */,
+				ED2698F725AD052B00443DCA /* DocumentCaptureSession.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		ED2698F225AD052B00443DCA /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698F325AD052B00443DCA /* AutoCaptureDelegate.swift */,
+				ED2698F425AD052B00443DCA /* DocumentCaptureDelegate.swift */,
+				ED2698F525AD052B00443DCA /* CameraCaptureDelegate.swift */,
+				ED2698F625AD052B00443DCA /* FrameAnalysisDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		ED2698F825AD052B00443DCA /* Mrz */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698F925AD052B00443DCA /* Media.xcassets */,
+				ED2698FA25AD052B00443DCA /* AcuantMrzCameraController.swift */,
+				ED2698FB25AD052B00443DCA /* AcuantMrzCaptureSession.swift */,
+				ED2698FC25AD052B00443DCA /* OCR */,
+			);
+			path = Mrz;
+			sourceTree = "<group>";
+		};
+		ED2698FC25AD052B00443DCA /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698FD25AD052B00443DCA /* Utils */,
+				ED26990025AD052B00443DCA /* AcuantOcrDetector.swift */,
+				ED26990125AD052B00443DCA /* AcuantMrzResult.swift */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		ED2698FD25AD052B00443DCA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ED2698FE25AD052B00443DCA /* StringExt.swift */,
+				ED2698FF25AD052B00443DCA /* AcuantMrzParser.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ED26990325AD052B00443DCA /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				ED26990425AD052B00443DCA /* CaptureConstants.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		ED26990525AD052B00443DCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED26990625AD052B00443DCA /* CameraDocumentOverlayView.swift */,
+				ED26990725AD052B00443DCA /* AcuantCameraTextView.swift */,
+				ED26990825AD052B00443DCA /* CameraCornerOverlayView.swift */,
+				ED26990925AD052B00443DCA /* CameraCornerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED26990C25AD052B00443DCA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED26991025AD052B00443DCA /* AcuantCamera.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -394,8 +537,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2AE585BA245A0BA800014E96 /* Products */;
-					ProjectRef = 2AE585B9245A0BA800014E96 /* AcuantCamera.xcodeproj */;
+					ProductGroup = ED26990C25AD052B00443DCA /* Products */;
+					ProjectRef = ED26990B25AD052B00443DCA /* AcuantCamera.xcodeproj */;
+				},
+				{
+					ProductGroup = ED2698D625ACF3B400443DCA /* Products */;
+					ProjectRef = ED2698D525ACF3B400443DCA /* AcuantFaceCapture.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -406,11 +553,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2AE585BE245A0BA800014E96 /* AcuantCamera.framework */ = {
+		ED2698E525ACF3B400443DCA /* AcuantFaceCapture.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AcuantFaceCapture.framework;
+			remoteRef = ED2698E425ACF3B400443DCA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ED26991025AD052B00443DCA /* AcuantCamera.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AcuantCamera.framework;
-			remoteRef = 2AE585BD245A0BA800014E96 /* PBXContainerItemProxy */;
+			remoteRef = ED26990F25AD052B00443DCA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -465,10 +619,9 @@
 				2AE585C0245A0BA800014E96 /* UIImageExtn.swift in Sources */,
 				2AB494FD245C908900601A17 /* AcuantMrzResult.swift in Sources */,
 				138EA90520F7CFC9002FC333 /* Utils.swift in Sources */,
-				2AE585D2245A0BA800014E96 /* CameraCornerView.swift in Sources */,
+				241DDDC225C86E28000D9EEE /* TruliooImageHelper.swift in Sources */,
 				EDB4060E23723CCA001CF27B /* TruliooResultViewController.swift in Sources */,
 				EDB40610237355A0001CF27B /* TruliooRequestClass.swift in Sources */,
-				2AE585C6245A0BA800014E96 /* DocumentCaptureSession.swift in Sources */,
 				EDBE82AD2370D26C00A4ADFA /* TruliooHelper.swift in Sources */,
 				ED38E481236BB14A0072B736 /* TruliooTestConnectionViewController.swift in Sources */,
 				13750BB62125FC35009B29AA /* ClassificationErrorViewController.swift in Sources */,
@@ -480,9 +633,6 @@
 				2AB494FB245C908900601A17 /* AcuantMrzParser.swift in Sources */,
 				13AC65DE20EE8F8F00F0D494 /* RootViewController.swift in Sources */,
 				EDB40612237368ED001CF27B /* TruliooResultClass.swift in Sources */,
-				2AB494FA245C908900601A17 /* StringExt.swift in Sources */,
-				2AE585CE245A0BA800014E96 /* CaptureConstants.swift in Sources */,
-				2AE585C5245A0BA800014E96 /* FrameAnalysisDelegate.swift in Sources */,
 				C2B08D5922C6AF31003F2CBE /* FaceLivenessCameraController.swift in Sources */,
 				138EA90320F7BF9B002FC333 /* ResultViewController.swift in Sources */,
 				2AB494F9245C908900601A17 /* AcuantMrzCaptureSession.swift in Sources */,
@@ -494,7 +644,6 @@
 				2AB494F8245C908900601A17 /* AcuantMrzCameraController.swift in Sources */,
 				13AC66BE20EED36D00F0D494 /* CustomAlert.swift in Sources */,
 				ED2517092370E54C00B53736 /* TruliooConfirmationViewController.swift in Sources */,
-				2AE585CF245A0BA800014E96 /* CameraDocumentOverlayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +814,7 @@
 				CLANG_WARN_CXX0X_EXTENSIONS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q55CQ4CFLY;
+				DEVELOPMENT_TEAM = Y2T52UAR7Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../EmbeddedFrameworks",
@@ -676,7 +825,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cssn.TruliooSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = trulioo.globalgateway.acuantsampleapp;
 				PRODUCT_NAME = TruliooSampleApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -692,7 +841,7 @@
 				CLANG_WARN_CXX0X_EXTENSIONS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q55CQ4CFLY;
+				DEVELOPMENT_TEAM = Y2T52UAR7Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../EmbeddedFrameworks",
@@ -703,7 +852,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cssn.TruliooSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = trulioo.globalgateway.acuantsampleapp;
 				PRODUCT_NAME = TruliooSampleApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

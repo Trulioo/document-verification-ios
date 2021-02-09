@@ -12,7 +12,7 @@ import AVFoundation
 import AcuantImagePreparation
 import AcuantCommon
 
-@objcMembers public class DocumentCameraController : UIViewController, DocumentCaptureDelegate , FrameAnalysisDelegate {
+@objcMembers public class DocumentCameraController : UIViewController, DocumentCaptureDelegate, FrameAnalysisDelegate, AutoCaptureDelegate {
     
     @objc public enum CameraState : Int {
         case Align = 0, MoveCloser = 1, Steady = 2, Hold = 3, Capture = 4
@@ -43,7 +43,8 @@ import AcuantCommon
     
     private let captureTime = 1
     private let documentMovementThreshold = 45
-    
+    private let previewBoundsThreshold: CGFloat = 25
+
     private var currentStateCount = 0
     private var nextState = FrameResult.NO_DOCUMENT
     private var isNavigationHidden = false
@@ -57,6 +58,19 @@ import AcuantCommon
         c.hideNavBar = cameraOptions.hideNavigationBar
         c.captureIntervalInSeconds = Double(cameraOptions.timeInMsPerDigit)/Double(1000)
         return c
+    }
+    
+    public func setAutoCapture(autoCapture: Bool) {
+        self.autoCapture = autoCapture
+        if (!autoCapture) {
+            DispatchQueue.main.async {
+                self.messageLayer.string = NSLocalizedString("acuant_camera_manual_capture", comment: "")
+            }
+        }
+    }
+    
+    public func getAutoCapture() -> Bool {
+        return autoCapture
     }
 
     override public func viewDidLoad() {
@@ -114,7 +128,7 @@ import AcuantCommon
     
     internal func startCameraView() {
         let captureDevice: AVCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back)!
-        self.captureSession = DocumentCaptureSession.getDocumentCaptureSession(delegate: self, frameDelegate: self,autoCapture:autoCapture, captureDevice: captureDevice)
+        self.captureSession = DocumentCaptureSession.getDocumentCaptureSession(delegate: self, frameDelegate: self, autoCaptureDelegate: self, captureDevice: captureDevice)
         self.captureSession.start()
         self.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
         self.videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
@@ -137,7 +151,10 @@ import AcuantCommon
         self.videoPreviewLayer.addSublayer(self.messageLayer)
         self.videoPreviewLayer.addSublayer(self.cornerLayer)
         self.view.layer.addSublayer(self.videoPreviewLayer)
-        addNavigationBackButton()
+        
+        if(self.options!.showBackButton){
+            addNavigationBackButton()
+        }
     }
     
     public func documentCaptured(image: UIImage, barcodeString: String?) {
@@ -161,6 +178,7 @@ import AcuantCommon
         case DocumentCameraController.CameraState.MoveCloser:
             self.messageLayer.setDefaultSettings(frame: self.view.frame)
             self.cornerLayer.setColor(color: self.options?.colorBracketCloser)
+            self.cornerLayer.setDefaultCorners(frame: self.view.frame)
             self.shapeLayer.hideBorder()
             break;
         case DocumentCameraController.CameraState.Hold:
@@ -195,7 +213,7 @@ import AcuantCommon
     }
     
     private func triggerHoldSteady(){
-        if(!self.isHoldSteady){
+        if(!self.isHoldSteady && self.autoCapture){
             self.isHoldSteady = true
             holdSteadyTimer = Timer.scheduledTimer(
                 timeInterval: 0.1,
@@ -225,7 +243,7 @@ import AcuantCommon
         else{
             let interval = getInterval(time: self.captureTimerState, duration: self.captureIntervalInSeconds)
             
-            if(interval >= self.captureTime){
+            if(interval >= self.captureWaitTime-1){
                 self.captureSession.enableCapture()
             }
             else{
@@ -250,7 +268,11 @@ import AcuantCommon
     }
     
     
-    private func transitionState(state: CameraState, localString: String? = nil){
+    private func transitionState(state: CameraState, localString: String? = nil) {
+        if (!autoCapture) {
+            return
+        }
+        
         if(localString != nil){
             self.cancelCapture(state: state, message: NSLocalizedString(localString!, comment: ""))
         }
@@ -259,9 +281,8 @@ import AcuantCommon
         }
     }
     
-
     func isInRange(point: CGPoint) -> Bool{
-        return (point.x >= 0 && point.x <= self.videoPreviewLayer.frame.width) && (point.y >= 0 && point.y <= self.videoPreviewLayer.frame.height)
+        return (point.x >= -previewBoundsThreshold && point.x <= self.videoPreviewLayer.frame.width + previewBoundsThreshold) && (point.y >= -previewBoundsThreshold && point.y <= self.videoPreviewLayer.frame.height + previewBoundsThreshold)
     }
     
     func isOutsideView(points: Array<CGPoint>?) -> Bool {
@@ -277,7 +298,7 @@ import AcuantCommon
     }
     
     public func onFrameAvailable(frameResult: FrameResult, points: Array<CGPoint>?) {
-        if(self.videoPreviewLayer == nil || self.messageLayer == nil || self.captured || !handleNextState(current: frameResult)){
+        if(self.videoPreviewLayer == nil || self.messageLayer == nil || self.captured || !self.autoCapture){
             return
         }
         
@@ -299,7 +320,7 @@ import AcuantCommon
                 self.transitionState(state: CameraState.MoveCloser, localString: "acuant_camera_move_closer")
                 break
             case FrameResult.DOCUMENT_NOT_IN_FRAME:
-               self.transitionState(state: CameraState.Align, localString: "acuant_camera_outside_view")
+               self.transitionState(state: CameraState.MoveCloser, localString: "acuant_camera_outside_view")
                break
             case FrameResult.GOOD_DOCUMENT:
                 if(points != nil && points?.count == 4 && autoCapture){
@@ -398,6 +419,7 @@ import AcuantCommon
     }
     
     @objc internal func backTapped(_ sender: Any){
+        self.cameraCaptureDelegate?.setCapturedImage(image: Image(), barcodeString: nil)
         self.navigationController?.popViewController(animated: true)
     }
 }
