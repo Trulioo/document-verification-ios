@@ -215,7 +215,6 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         self.present(alert, animated: true, completion: nil)
     }
     
-    
     func livenessTestCredentialReceiveFailed(error:AcuantError){
         self.hideProgressView()
         CustomAlerts.displayError(message: "\(error.errorCode) : \(String(describing: error.errorDescription))" )
@@ -392,7 +391,7 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
             if(barcodeString != nil){
                 capturedBarcodeString = barcodeString
             }
-            let croppedImage = cropImage(image: image.image!)
+            let croppedImage = cropImage(image: image)
             DispatchQueue.global().async {
                 DispatchQueue.main.async {
                     if(croppedImage?.image == nil || (croppedImage?.error != nil && croppedImage?.error?.errorCode != AcuantErrorCodes.ERROR_LowResolutionImage)){
@@ -435,9 +434,8 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         getAcuantDataAsJsonString(onResult: confirmImage)
     }
     
-    func cropImage(image:UIImage)->Image?{
-        let croppingData  = CroppingData()
-        croppingData.image = image
+    func cropImage(image:Image)->Image?{
+        let croppingData  = CroppingData.newInstance(image: image)
         
         let croppedImage = AcuantImagePreparation.crop(data: croppingData)
         return croppedImage
@@ -571,7 +569,6 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         var metaData: Dictionary<String, Any> = ["SYSTEM" : "iOS"]
         metaData["V"] = TRULIOO_VERSION
         metaData["CAPTURESDK"] = ACUANT_SDK_VERSION
-        metaData["MODE"] = self.autoCapture ? "AUTO" : "MANUAL"
         metaData["TIMESTAMP"] = ISO8601DateFormatter().string(from: Date())
         metaData["GPSLATITUDE"] = self.currentLatitude
         metaData["GPSLONGITUDE"] = self.currentLongitude
@@ -579,13 +576,13 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         metaData["ACUANTVERTICALRESOLUTION"] = self.currentDpi
         metaData["RETRIES"] = self.currentRetries
     
-        var encodeDocType: String
         if self.currentImage == self.selfieImage {
-             encodeDocType = "SELFIE"
+            metaData["MODE"] = "AUTO"
+            metaData["TRULIOOSDK"] = "SELFIE"
         } else {
-            encodeDocType = self.currentImage == "Passport" ? "PASSPORT" : "DOCUMENT"
+            metaData["MODE"] = self.autoCapture ? "AUTO" : "MANUAL"
+            metaData["TRULIOOSDK"] = self.currentImage == "Passport" ? "PASSPORT" : "DOCUMENT"
         }
-        metaData["TRULIOOSDK"] = encodeDocType
         
         var ipAddress = "UNAVAILABLE"
         let url = URL(string: "https://api.globaldatacompany.com/common/v1/ip-info")!

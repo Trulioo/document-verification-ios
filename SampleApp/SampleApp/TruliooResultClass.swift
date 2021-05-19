@@ -7,7 +7,7 @@
 
 import Foundation
 
-let ACUANT_SDK_VERSION = "AcuantV11.4.7"
+let ACUANT_SDK_VERSION = "AcuantV11.4.9"
 let TRULIOO_VERSION = "1"
 
 struct VerifyResult: Codable{
