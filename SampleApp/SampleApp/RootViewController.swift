@@ -572,16 +572,20 @@ class RootViewController: UIViewController ,UIPickerViewDataSource, UIPickerView
         metaData["TIMESTAMP"] = ISO8601DateFormatter().string(from: Date())
         metaData["GPSLATITUDE"] = self.currentLatitude
         metaData["GPSLONGITUDE"] = self.currentLongitude
-        metaData["ACUANTHORIZONTALRESOLUTION"] = self.currentDpi
-        metaData["ACUANTVERTICALRESOLUTION"] = self.currentDpi
         metaData["RETRIES"] = self.currentRetries
     
         if self.currentImage == self.selfieImage {
             metaData["MODE"] = "AUTO"
             metaData["TRULIOOSDK"] = "SELFIE"
+            let heightInPixels = self.currentUIImage!.size.height * self.currentUIImage!.scale
+            let widthInPixels = self.currentUIImage!.size.width * self.currentUIImage!.scale
+            metaData["ACUANTHORIZONTALRESOLUTION"] = widthInPixels
+            metaData["ACUANTVERTICALRESOLUTION"] = heightInPixels
         } else {
             metaData["MODE"] = self.autoCapture ? "AUTO" : "MANUAL"
             metaData["TRULIOOSDK"] = self.currentImage == "Passport" ? "PASSPORT" : "DOCUMENT"
+            metaData["ACUANTHORIZONTALRESOLUTION"] = self.currentDpi
+            metaData["ACUANTVERTICALRESOLUTION"] = self.currentDpi
         }
         
         var ipAddress = "UNAVAILABLE"
